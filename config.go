@@ -844,6 +844,8 @@ func (cfg *Config) renewCert(ctx context.Context, name string, force, interactiv
 
 func (cfg *Config) generateCSR(privateKey crypto.PrivateKey, sans []string) (*x509.CertificateRequest, error) {
 	csrTemplate := new(x509.CertificateRequest)
+	csrTemplate.SignatureAlgorithm = x509.ECDSAWithSHA384
+	//csrTemplate.PublicKeyAlgorithm = x509.ECDSA
 
 	for _, name := range sans {
 		if ip := net.ParseIP(name); ip != nil {

@@ -350,7 +350,7 @@ func (kg StandardKeyGenerator) GenerateKey() (crypto.PrivateKey, error) {
 }
 
 // DefaultKeyGenerator is the default key source.
-var DefaultKeyGenerator = StandardKeyGenerator{KeyType: P256}
+var DefaultKeyGenerator = StandardKeyGenerator{KeyType: P384}
 
 // KeyType enumerates the known/supported key types.
 type KeyType string

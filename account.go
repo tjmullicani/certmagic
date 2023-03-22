@@ -76,7 +76,7 @@ func (*ACMEIssuer) newAccount(email string) (acme.Account, error) {
 	if email != "" {
 		acct.Contact = []string{"mailto:" + email} // TODO: should we abstract the contact scheme?
 	}
-	privateKey, err := ecdsa.GenerateKey(elliptic.P256(), rand.Reader)
+	privateKey, err := ecdsa.GenerateKey(elliptic.P384(), rand.Reader)
 	if err != nil {
 		return acct, fmt.Errorf("generating private key: %v", err)
 	}
